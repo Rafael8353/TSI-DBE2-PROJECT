@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# EXCEÇÃO: Se o arquivo for setup.php, não faça nada (pare aqui)
+RewriteRule ^setup\.php$ - [L]
+
+# Regras Padrão (Redireciona todo o resto para index.php)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]

@@ -1,0 +1,45 @@
+### Configuração da URL Base (Ajuste se mudar a pasta)
+@baseUrl = http://localhost/TSI-DBE2-PROJECT/api
+
+### 1. Listar todos os usuários
+GET {{baseUrl}}/usuarios
+
+### 2. Criar um novo usuário
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+    "nome": "Professor Teste",
+    "email": "prof@ifsul.edu.br"
+}
+
+### 3. Listar todos os posts (Deve vir vazio ou com erro se não tiver posts)
+GET {{baseUrl}}/posts
+
+### 4. Criar um Post (Sucesso)
+# Nota: O autor_id deve ser um ID válido (1 ou 2 já existem)
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+    "titulo": "Meu Primeiro Artigo",
+    "conteudo": "Conteúdo acadêmico importante...",
+    "autor_id": 1,
+    "status": "publicado"
+}
+
+### 5. Tentar Criar Post com Erro (Autor Inexistente)
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+    "titulo": "Falha",
+    "conteudo": "Não vai salvar",
+    "autor_id": 999
+}
+
+### 6. Filtrar Posts Publicados
+GET {{baseUrl}}/posts?status=publicado
+
+### 7. Deletar o usuário 2 (Rafael)
+DELETE {{baseUrl}}/usuarios/2
