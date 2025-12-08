@@ -1,5 +1,5 @@
 ### Configuração da URL Base (Ajuste se mudar a pasta)
-@baseUrl = http://localhost/TSI-DBE2-PROJECT/api
+@baseUrl = http://localhost/Blog/api
 
 ### 1. Listar todos os usuários
 GET {{baseUrl}}/usuarios
