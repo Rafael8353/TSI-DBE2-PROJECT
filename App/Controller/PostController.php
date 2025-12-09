@@ -19,7 +19,7 @@ class PostController {
                     if ($id) {
                         echo json_encode($this->service->buscarPorId($id));
                     } else {
-                        // Captura filtro da URL (ex: ?status=publicado) [cite: 39]
+                       
                         $status = $_GET['status'] ?? null;
                         echo json_encode($this->service->listarTodos($status));
                     }

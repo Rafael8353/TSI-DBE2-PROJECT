@@ -36,7 +36,7 @@ class UsuarioService {
     }
 
     public function deletar($id) {
-        $this->buscarPorId($id); // Verifica se existe
+        $this->buscarPorId($id); 
         $this->repository->delete($id);
         return ["mensagem" => "Usuário deletado."];
     }

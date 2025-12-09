@@ -2,8 +2,8 @@
 // db.php
 $host = 'localhost';
 $db   = 'blog_simples';
-$user = 'root'; // Ajuste conforme seu usuário
-$pass = '';     // Ajuste conforme sua senha
+$user = 'root'; 
+$pass = '';     
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);

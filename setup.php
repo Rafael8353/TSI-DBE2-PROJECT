@@ -1,10 +1,9 @@
 <?php
-// Arquivo: setup.php
-// Objetivo: Criar o banco de dados SQLite e as tabelas
+
 
 $dbFile = __DIR__ . '/blog_simples.sqlite';
 
-// Remove banco antigo se existir (para começar do zero)
+
 if (file_exists($dbFile)) {
     unlink($dbFile);
 }
@@ -14,14 +13,14 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->exec("PRAGMA foreign_keys = ON;");
 
-    // Tabela Usuarios
+ 
     $pdo->exec("CREATE TABLE IF NOT EXISTS usuarios (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         email TEXT NOT NULL UNIQUE
     )");
 
-    // Tabela Posts
+  
     $pdo->exec("CREATE TABLE IF NOT EXISTS posts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         titulo TEXT NOT NULL,
@@ -31,7 +30,7 @@ try {
         FOREIGN KEY (autor_id) REFERENCES usuarios(id) ON DELETE CASCADE
     )");
 
-    // Dados de teste
+   
     $pdo->exec("INSERT INTO usuarios (nome, email) VALUES ('Leonardo', 'leo@email.com')");
     $pdo->exec("INSERT INTO usuarios (nome, email) VALUES ('Rafael', 'rafa@email.com')");
     
